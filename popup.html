@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT ChatBot</title>
+    <link rel="stylesheet" href="popup-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.593 7.203c-.23-1.69-1.675-3.024-3.362-3.24C16.233 3.8 12 3.8 12 3.8s-4.233 0-6.231.163c-1.687.216-3.132 1.55-3.362 3.24C2.25 9.203 2.25 12 2.25 12s0 2.797.157 4.797c.23 1.69 1.675 3.024 3.362 3.24 1.998.163 6.231.163 6.231.163s4.233 0 6.231-.163c1.687-.216 3.132-1.55 3.362-3.24.157-2 .157-4.797.157-4.797s0-2.797-.157-4.797z" fill="#FF0000"/>
+                    <path d="m9.75 15.02 4.171-2.404L9.75 10.213v4.807z" fill="#FFF"/>
+                </svg>
+                <h1>YT ChatBot</h1>
+            </div>
+            <button class="minimize-btn" id="minimizeBtn">−</button>
+        </div>
+        
+        <div class="status-section">
+            <div class="status" id="status">
+                <div class="status-indicator" id="statusIndicator"></div>
+                <div class="status-info">
+                    <span id="statusText">Navigate to a YouTube video</span>
+                    <div class="video-info" id="videoInfo" style="display: none;">
+                        <small id="videoTitle">Video Title</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="analyze-section" id="analyzeSection" style="display: none;">
+                <button class="analyze-btn" id="analyzeBtn">
+                    <span class="btn-icon">🎬</span>
+                    <span class="btn-text">Analyze Video</span>
+                    <div class="loading-spinner" style="display: none;"></div>
+                </button>
+                <div class="analyze-progress" id="analyzeProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <small class="progress-text">Processing transcript...</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="avatar bot-avatar">🤖</div>
+                    <div class="message-content">
+                        <p>Hello! I'm your YouTube AI assistant. Navigate to a YouTube video and click "Analyze Video" to start chatting!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <input type="text" id="messageInput" placeholder="Click 'Analyze Video' first..." disabled>
+                    <button id="sendBtn" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 21l21-9L2 3v7l15 2-15 2v7z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="contextSlider">Context Detail Level</label>
+                <div class="slider-container">
+                    <input type="range" id="contextSlider" min="2" max="8" step="1" value="4">
+                    <div class="slider-track">
+                        <div class="slider-fill"></div>
+                    </div>
+                    <div class="slider-labels">
+                        <span>Quick</span>
+                        <span>Detailed</span>
+                    </div>
+                </div>
+                <div class="slider-value">4 chunks</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button id="clearChatBtn" class="secondary-btn">
+                <span>🗑️</span>
+                Clear Chat
+            </button>
+            <button id="exportChatBtn" class="secondary-btn">
+                <span>📤</span>
+                Export
+            </button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

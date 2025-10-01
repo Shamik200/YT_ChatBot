@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"git.ignoreLimitWarning": true,
+		"files.associations": {
+			"iostream": "cpp",
+			"ostream": "cpp",
+			"*.inc": "cpp",
+			"cmath": "cpp",
+			"complex": "cpp",
+			"random": "cpp"
+		},
+		"postman.settings.dotenv-detection-notification-visibility": false
+	}
+}

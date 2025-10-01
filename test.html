@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Extension</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .info { background: #e7f3ff; padding: 15px; border-radius: 5px; margin: 10px 0; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>YT ChatBot Extension Test</h1>
+    
+    <div class="info">
+        <h2>🎯 Testing Instructions</h2>
+        <ol>
+            <li><strong>Load the Extension:</strong>
+                <ul>
+                    <li>Open Chrome → Extensions (chrome://extensions/)</li>
+                    <li>Enable "Developer mode"</li>
+                    <li>Click "Load unpacked" → Select the YTChatBot folder</li>
+                </ul>
+            </li>
+            <li><strong>Test the Backend:</strong>
+                <ul>
+                    <li>Backend is running on: <a href="http://localhost:8000" target="_blank">http://localhost:8000</a></li>
+                    <li>API endpoint: <code>http://localhost:8000/api/chat</code></li>
+                </ul>
+            </li>
+            <li><strong>Test on YouTube:</strong>
+                <ul>
+                    <li>Go to any YouTube video with captions (e.g., <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Rick Roll</a>)</li>
+                    <li>Look for the 🤖 button on the right side of the screen</li>
+                    <li>Click it to open the sliding panel</li>
+                    <li>Click "Analyze Video" and then ask questions</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="info success">
+        <h2>✅ Current Status</h2>
+        <ul>
+            <li>✅ Backend API with enhanced error logging</li>
+            <li>✅ Fixed Google API key loading from .env</li>
+            <li>✅ Fixed model name (gemini-2.0-flash-exp)</li>
+            <li>✅ Fixed parameter naming issues</li>
+            <li>✅ Sliding panel UI with modern design</li>
+            <li>✅ Content script for YouTube integration</li>
+            <li>✅ Manual "Analyze Video" workflow</li>
+        </ul>
+    </div>
+
+    <div class="info">
+        <h2>🔧 Key Features</h2>
+        <ul>
+            <li><strong>Sliding Panel:</strong> Elegant right-side panel that slides in/out</li>
+            <li><strong>Video Detection:</strong> Automatically detects current YouTube video</li>
+            <li><strong>Manual Analysis:</strong> Click "Analyze Video" to process video content</li>
+            <li><strong>Context Control:</strong> Slider to adjust detail level (2-8 chunks)</li>
+            <li><strong>Chat Interface:</strong> Clean chat UI with typing indicators</li>
+            <li><strong>Status Indicators:</strong> Visual feedback for connection and analysis status</li>
+        </ul>
+    </div>
+
+    <div class="info error">
+        <h2>🚨 Troubleshooting</h2>
+        <ul>
+            <li><strong>500 Errors:</strong> Check console logs - backend now has detailed error logging</li>
+            <li><strong>No Captions:</strong> Some videos don't have auto-generated captions</li>
+            <li><strong>API Key Issues:</strong> Make sure GOOGLE_API_KEY is in .env file</li>
+            <li><strong>Extension Not Loading:</strong> Check Chrome Extensions page for errors</li>
+        </ul>
+    </div>
+
+    <script>
+        // Test backend connectivity
+        fetch('http://localhost:8000/')
+            .then(response => response.json())
+            .then(data => {
+                console.log('✅ Backend connected:', data);
+                document.body.innerHTML += '<div class="info success"><h3>✅ Backend Connection Test Passed</h3><pre>' + JSON.stringify(data, null, 2) + '</pre></div>';
+            })
+            .catch(error => {
+                console.error('❌ Backend connection failed:', error);
+                document.body.innerHTML += '<div class="info error"><h3>❌ Backend Connection Failed</h3><p>' + error.message + '</p></div>';
+            });
+    </script>
+</body>
+</html>

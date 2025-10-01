@@ -1,0 +1,15 @@
+# Simple Requirements - Only What We Need
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-dotenv
+
+# Your exact notebook dependencies
+youtube-transcript-api
+langchain-text-splitters
+langchain-google-genai
+langchain-community
+langchain-core
+langchain-huggingface
+sentence-transformers
+faiss-cpu
+google-generativeai

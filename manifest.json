@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "YT ChatBot - AI Video Assistant",
+  "version": "1.0.0",
+  "description": "AI-powered chatbot for YouTube videos using transcript analysis",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YT ChatBot"
+  }
+}
